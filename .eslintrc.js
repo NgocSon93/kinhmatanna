@@ -1,25 +1,28 @@
 module.exports = {
     env: {
-      browser: true,
       node: true,
-      es2021: true,
-      jest: true, // Thêm Jest vào môi trường
+      jest: true,
     },
     extends: [
+      "plugin:vue/vue3-essential",
+      "plugin:@typescript-eslint/eslint-recommended",
       'eslint:recommended',
+      'plugin:vue/base',
       'plugin:@typescript-eslint/recommended',
-      'plugin:jest/recommended', // Thêm cài đặt cho Jest
+      'plugin:jest/recommended',
+      'eslint-config-prettier'
     ],
-    parser: '@typescript-eslint/parser',
+    parser: "vue-eslint-parser",
     parserOptions: {
+      "parser": "@typescript-eslint/parser",
       ecmaVersion: 12,
       sourceType: 'module',
     },
     plugins: [
       '@typescript-eslint',
-      'jest', // Thêm Jest như một plugin
+      'jest',
     ],
     rules: {
-      // Các cài đặt quy tắc ESLint
+      "@typescript-eslint/camelcase": "off"
     },
   };

@@ -1,0 +1,26 @@
+@media only screen and (max-width: 63.9375em) {
+  .detail_product {
+    flex-direction: column-reverse;
+  }
+  .detail_product-body {
+    width: 100%;
+  }
+  .detail_product-creatAt,
+  .detail_product-type,
+  .detail_product-description {
+    display: none;
+  }
+  .detail_product-image {
+    margin: auto !important;
+  }
+}
+@media only screen and (max-width: 46.1875em) {
+  .detail_product-image {
+    width: 95% !important;
+  }
+}
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+  .detail_product-image {
+    width: 85% !important;
+  }
+}/*# sourceMappingURL=detailProduct.css.map */

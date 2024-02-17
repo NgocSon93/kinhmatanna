@@ -1,33 +1,49 @@
+<!-- eslint-disable vue/v-on-event-hyphenation -->
 <template>
   <div class="blog">
     <div class="blog-cover">
       <h1>BLOG</h1>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col-md-3" v-for="user in users" :key="user.id">
+      <div
+        v-for="user in users"
+        :key="user.id"
+        class="col-md-3"
+      >
         <div class="card">
           <img
             src="https://loremflickr.com/640/480/fashion"
             class="card-img-top"
             alt="..."
-          />
+          >
           <div class="card-body">
-            <h5 class="card-title">Name: {{ user.name }}</h5>
+            <h5 class="card-title">
+              Name: {{ user.name }}
+            </h5>
             <div class="card-prototype d-flex justify-content-around">
-              <h5 class="card-title">Price: {{ user.price }}</h5>
-              <h5 class="card-title">Type: {{ user.type }}</h5>
+              <h5 class="card-title">
+                Price: {{ user.price }}
+              </h5>
+              <h5 class="card-title">
+                Type: {{ user.type }}
+              </h5>
             </div>
-            <h5 class="card-title created">createdAt: {{ user.createdAt }}</h5>
+            <h5 class="card-title created">
+              createdAt: {{ user.createdAt }}
+            </h5>
             <p class="card-text">
               {{ user.description }}
             </p>
           </div>
           <div class="caed-button m-2">
-            <router-link :to="'/updateproduct/' + user.id"
-              ><button type="button" class="btn btn-outline-primary m-2">
+            <router-link :to="'/updateproduct/' + user.id">
+              <button
+                type="button"
+                class="btn btn-outline-primary m-2"
+              >
                 Edit
-              </button></router-link
-            >
+              </button>
+            </router-link>
             <button
               type="button"
               class="btn btn-outline-secondary m-2"
@@ -41,46 +57,69 @@
     </div>
   </div>
   <div class="addproducts">
-    <button type="submit" class="btn btn-primary" @click="showPopup">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      @click="showPopup"
+    >
       Thêm sản phẩm
     </button>
-    <div class="popup" v-if="isPopupVisible" @click="closePopup">
-      <form class="row g-3" @click.stop>
+    <div
+      v-if="isPopupVisible"
+      class="popup"
+      @click="closePopup"
+    >
+      <form
+        class="row g-3"
+        @click.stop
+      >
         <div class="col-md-6">
           <label class="form-label">Name</label>
-          <input type="text" class="form-control" v-model="postproducts.name" />
+          <input
+            v-model="postproducts.name"
+            type="text"
+            class="form-control"
+          >
         </div>
         <div class="col-md-6">
           <label class="form-label">Price</label>
           <input
+            v-model="postproducts.price"
             type="number"
             class="form-control"
-            v-model="postproducts.price"
-          />
+          >
         </div>
         <div class="col-12">
           <label class="form-label">Type</label>
           <input
+            v-model="postproducts.type"
             type="text"
             class="form-control"
             placeholder="Write type"
-            v-model="postproducts.type"
-          />
+          >
         </div>
         <div class="col-12">
           <label class="form-label">Description</label>
           <input
+            v-model="postproducts.description"
             type="text"
             class="form-control"
             placeholder="Write description"
-            v-model="postproducts.description"
-          />
+          >
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary m-2" @click="closePopup">
+          <button
+            type="submit"
+            class="btn btn-primary m-2"
+            @click="closePopup"
+          >
             Close
           </button>
-          <button type="submit" class="btn btn-primary m-2" @click="submitPost">
+          <button
+            type="submit"
+            class="btn btn-primary m-2"
+            @click="submitPost"
+          >
             Post
           </button>
         </div>
@@ -90,7 +129,7 @@
   <edit-blog-vue
     v-if="isPopupEdit"
     @CloseModal="closePopupEdit"
-  ></edit-blog-vue>
+  />
 </template>
 
 <script>
@@ -98,7 +137,7 @@ import axios from "axios";
 import { ref } from "vue";
 import EditBlogVue from "./Edit-Blog.vue";
 export default {
-  name: "News-Anna",
+  name: "NewsAnna",
   components: { EditBlogVue },
   setup() {
     const users = ref([]);

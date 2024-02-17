@@ -1,9 +1,10 @@
 <template>
-  <Header></Header>
+  <Header />
   <router-view />
-  <Footer></Footer>
+  <Footer />
 </template>
 <script>
+/* eslint-disable */
 import Header from "./NavBar/Navbar-Header.vue";
 import Footer from "./NavBar/Navbar-Footer.vue";
 export default {

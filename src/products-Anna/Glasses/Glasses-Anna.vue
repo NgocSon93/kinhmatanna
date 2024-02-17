@@ -31,12 +31,13 @@
           <Slide v-for="listProducts in listOfProducts" :key="listProducts.id">
             <div class="carousel__item">
               <div class="card">
+                <router-link :to="`/detailproduct/${listProducts.id}`">
                 <div class="image-products">
                   <div class="card-sale" v-if="listProducts.price > 300">
                     <p>SALE</p>
                   </div>
                   <img
-                    :src="listProducts.image"
+                    src="https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045-2.jpg"
                     class="card-img-top"
                     :alt="listProducts.type"
                   />
@@ -44,17 +45,12 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ listProducts.name }}</h5>
                   <div class="card-price">
-                    <p
-                      class="card-price-sale"
-                      :class="{ 'card-price-sales': active }"
-                    >
-                      {{ listProducts.pricedefaul }}
-                    </p>
                     <p class="card-price-defaul">
                       {{ listProducts.price }}
                     </p>
                   </div>
                 </div>
+                </router-link>
               </div>
             </div>
           </Slide>
@@ -70,11 +66,11 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import FeaturedProducts from "../../views/FlashSale/FlashSale-item.vue";
 import CartHome from "../CartShopping/CartHome.vue";
-
+import axios from "axios";
 import "vue3-carousel/dist/carousel.css";
 import ThemediaAnna from "@/views/TheMedia/Themedia-Anna.vue";
 
@@ -90,99 +86,6 @@ export default defineComponent({
   },
   data: () => ({
     active: true,
-    listOfProducts: [
-      {
-        name: "Sleek Cotton Shirt",
-        price: "643.00",
-        pricedefaul: "900.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "1",
-      },
-      {
-        name: "Sleek Metal Car",
-        price: "802.00",
-        pricedefaul: "999.000",
-        type: "male",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 2,
-        id: "2",
-      },
-      {
-        name: "Electronic Cotton",
-        price: "312.00",
-        pricedefaul: "534.000",
-        type: "male",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 3,
-        id: "3",
-      },
-      {
-        name: "Intelligent Rubber",
-        price: "409.00",
-        pricedefaul: "967.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 4,
-        id: "4",
-      },
-      {
-        name: "Fantastic Steel",
-        price: "140.00",
-        pricedefaul: "346.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "5",
-      },
-      {
-        name: "Fantic Slice",
-        price: "1650.00",
-        pricedefaul: "532.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "6",
-      },
-      {
-        name: "Tasel",
-        price: "143.00",
-        pricedefaul: "740.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "7",
-      },
-      {
-        name: "Merse",
-        price: "1880.00",
-        pricedefaul: "9400.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "8",
-      },
-      {
-        name: "Final",
-        price: "1435.00",
-        pricedefaul: "6900.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "9",
-      },
-      {
-        name: "Steel",
-        price: "183.00",
-        pricedefaul: "940.000",
-        type: "female",
-        image: "https://loremflickr.com/640/480/fashion",
-        reviewStar: 5,
-        id: "10",
-      },
-    ],
-    // carousel settings
     settings: {
       itemsToShow: 3,
       snapAlign: "start",
@@ -210,6 +113,24 @@ export default defineComponent({
       },
     },
   }),
+  setup() {
+    const listOfProducts = ref();
+     async function dataProduct() {
+      try {
+        const response = await axios.get(
+          "https://63fc1d1e677c415873061a18.mockapi.io/tasks"
+        );
+        listOfProducts.value = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    dataProduct();
+    return {
+  dataProduct,
+  listOfProducts,
+}
+  }
 });
 </script>
 
@@ -283,6 +204,10 @@ export default defineComponent({
 }
 .card-body {
   text-align: center;
+  color: #000;
+}
+a {
+  text-decoration: none;
 }
 .card-img-top {
   height: 250px;

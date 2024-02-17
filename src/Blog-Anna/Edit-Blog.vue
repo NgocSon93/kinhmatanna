@@ -1,49 +1,71 @@
 <template>
   <div class="editproducts">
-    <div class="popup-edit" @click="onCloseModal">
-      <form class="row g-3" @click.stop>
+    <div
+      class="popup-edit"
+      @click="onCloseModal"
+    >
+      <form
+        class="row g-3"
+        @click.stop
+      >
         <div class="col-md-6">
           <label class="form-label">New Name</label>
-          <input type="text" class="form-control" v-model="editProduct.name" />
+          <input
+            v-model="editProduct.name"
+            type="text"
+            class="form-control"
+          >
         </div>
         <div class="col-md-6">
           <label class="form-label">New Price</label>
           <input
+            v-model="editProduct.price"
             type="number"
             class="form-control"
-            v-model="editProduct.price"
-          />
+          >
         </div>
         <div class="col-12">
           <label class="form-label">New Type</label>
           <input
+            v-model="editProduct.type"
             type="text"
             class="form-control"
             placeholder="Write Type"
-            v-model="editProduct.type"
-          />
+          >
         </div>
         <div class="col-12">
           <label class="form-label">New Description</label>
           <input
+            v-model="editProduct.description"
             type="text"
             class="form-control"
             placeholder="Write Description"
-            v-model="editProduct.description"
-          />
+          >
         </div>
         <div class="col-12">
           <router-link :to="{ name: 'blog' }">
-            <button type="button" class="btn btn-primary m-2">Close</button>
+            <button
+              type="button"
+              class="btn btn-primary m-2"
+            >
+              Close
+            </button>
           </router-link>
 
-          <button type="button" class="btn btn-primary m-2" @click="updatePost">
+          <button
+            type="button"
+            class="btn btn-primary m-2"
+            @click="updatePost"
+          >
             Update
           </button>
         </div>
         <div class="col-12">
           <router-link :to="{ name: 'blog' }">
-            <button type="button" class="btn btn-secondary m-2">
+            <button
+              type="button"
+              class="btn btn-secondary m-2"
+            >
               Back Blog
             </button>
           </router-link>
@@ -59,7 +81,7 @@ import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router"; // Import useRoute and useRouter
 
 export default {
-  name: "Edit-Blog",
+  name: "EditBlog",
   setup() {
     const editProduct = ref({
       name: "",
@@ -80,7 +102,6 @@ export default {
           description: editProduct.value.description,
         }
       );
-      console.log(result);
       if (result.status === 200) {
         router.push({ name: "blog" });
       }

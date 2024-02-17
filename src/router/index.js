@@ -58,6 +58,11 @@ const routes = [
     name: "updateproduct",
     component: () => import("../Blog-Anna/Edit-Blog.vue"),
   },
+  {
+    path: "/detailproduct/:id",
+    name: "detailproduct",
+    component: () => import("../products-Anna/Glasses/DetailProduct.vue"),
+  },
 ];
 
 const router = createRouter({

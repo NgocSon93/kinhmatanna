@@ -13,7 +13,7 @@
               <p>SALE</p>
             </div>
             <img
-              :src="listProducts.image"
+              src="https://cdn.vjshop.vn/tin-tuc/5-cach-cai-thien-bo-cuc-anh-phong-canh-thong-qua-phoi-sang-lau/cai-thien-anh-phong-canh-bang-phuong-phap-chup-phoi-sang-lau.jpg"
               class="card-img-top"
               :alt="listProducts.type"
             />

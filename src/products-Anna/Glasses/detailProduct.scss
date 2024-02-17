@@ -1,0 +1,55 @@
+// Mobile and Tablet: width < 1024px
+@media only screen and (max-width: 63.9375em ) {
+    .detail_product {
+        flex-direction: column-reverse;
+    }
+    .detail_product-body {
+        width: 100%;
+    }
+    .detail_product-creatAt,
+    .detail_product-type,
+    .detail_product-description {
+        display: none;
+    }
+    .detail_product-image {
+        margin: auto;
+    }
+}
+
+// Mobile: width < 740px
+@media only screen and (max-width: 46.1875em) {
+    // Product 
+    .detail_product-image {
+        width: 95%;
+    }
+
+    // Course 
+    .detail_card-course {
+        width: 100%;
+    }
+    .detail_card-category {
+        display: none;
+    }
+    .card-course {
+        width: 100%;
+        text-align: center;
+    }
+
+    //Freature
+    .detail_feature {
+        flex-direction: column;
+    }
+}
+
+// Tablet: width >= 740px and width < 1024px
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    // Product
+    .detail_product-image {
+        width: 85%;
+    }
+
+    // Course
+    .card-course {
+        width: 33.333%;
+    }
+}

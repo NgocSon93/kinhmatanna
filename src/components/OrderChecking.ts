@@ -1,4 +1,4 @@
-let typeScript: string = "test typeScript";
+const typeScript: string = "test typeScript";
 console.log("test typeScript", typeScript);
 
 export function testTypeScript(n: number) {

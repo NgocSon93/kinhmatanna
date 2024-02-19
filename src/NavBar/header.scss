@@ -1,0 +1,14 @@
+// Mobile nav
+
+@media only screen and (max-width:1023px) {
+    .header_nav-icon{
+        display: block;
+    }
+    .header_nav-pc {
+        display: none;
+    }
+    .header-icon-search,
+    .header-icon-user {
+        display: none;
+    }
+}

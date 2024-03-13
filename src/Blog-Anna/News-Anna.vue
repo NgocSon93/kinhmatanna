@@ -35,18 +35,18 @@
               {{ user.description }}
             </p>
           </div>
-          <div class="caed-button m-2">
+          <div class="caed-button">
             <router-link :to="'/updateproduct/' + user.id">
               <button
                 type="button"
-                class="btn btn-outline-primary m-2"
+                class="btn btn-outline-primary margin-button"
               >
                 Edit
               </button>
             </router-link>
             <button
               type="button"
-              class="btn btn-outline-secondary m-2"
+              class="btn btn-outline-secondary margin-button"
               @click="deleteproduct(user.id)"
             >
               Delete
@@ -110,14 +110,14 @@
         <div class="col-12">
           <button
             type="submit"
-            class="btn btn-primary m-2"
+            class="btn btn-primary margin-button"
             @click="closePopup"
           >
             Close
           </button>
           <button
             type="submit"
-            class="btn btn-primary m-2"
+            class="btn btn-primary margin-button"
             @click="submitPost"
           >
             Post
@@ -258,4 +258,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.margin-button {
+  margin: 10px;
+}
+.card-body .card-title {
+    text-align: center;
+  }
 </style>

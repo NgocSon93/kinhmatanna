@@ -1,13 +1,140 @@
 <template>
-  <div class="blog">
-    <div class="mobile">
-      <p>this is mobile test</p>
+  <div class="main">
+    <div class="sidebar hide-on-tablet hide-on-mobile">
+      <h1>SIDEBAR</h1>
     </div>
-    <div class="tablet">
-      <p>this is tablet test</p>
-    </div>
-    <div class="pc">
-      <p>this is pc test</p>
+    <div class="content">
+      <h1>9. Music Player</h1>
+      <p>content-box (mặc định): Kích thước của phần tử chỉ tính từ nội dung bên trong, không bao gồm padding và border. Đây là cách tính toán kích thước theo kiểu truyền thống.</p>
+      <div class="grid">
+        <div class="row">
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 1
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 2
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 3
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 4
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 5
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 6
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 7
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 8
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 9
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 10
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 11
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 12
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 13
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 14
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 15
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 16
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 17
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 18
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 19
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 20
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 21
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 22
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 23
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 24
+            </div>
+          </div>
+          <div class="col l-3 m-4 c-12">
+            <div class="item">
+              Items 25
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -18,54 +145,39 @@ export default {
   setup() {}
 };
 </script>
-<style scoped>
-.blog{
-  width: 100%;
-  height: 700px;
-  display: flex;
-  font-size: 20px;
-  color: aliceblue;
-  text-transform: uppercase;
-  font-weight: bold;
+<style scoped lang="scss">
+.item {
+  margin-top: 16px;
+  font-size: 40px;
+  color: #fff;
   text-align: center;
-  justify-content: center;
-  background-color: blanchedalmond;
-}
-.mobile {
-  height: 500px;
-  width: 500px;
-  background-color: blue;
-  display: none;
-}
-.tablet {
-  height: 500px;
-  width: 500px;
-  background-color: red;
-  display: none;
-}
-.pc {
-  height: 500px;
-  width: 500px;
+  min-height: 280px;
+  line-height: 280px;
   background-color: orange;
-  display: none;
 }
+.main {
+  display: flex;
+  padding: 0 32px;
 
-/* Mobile */
-@media only screen and (max-width: 46.1875em) {
-  .mobile {
-    display: block;
+  & .sidebar {
+    width: 300px;
+    background-color: burlywood;
+  }
+
+  & .content {
+    flex: 1;
   }
 }
-/* Tablet */
-@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
-.tablet {
-    display: block;
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .hide-on-tablet {
+    display: none;
+  }
 }
-}
-/* PC */
-@media only screen and (min-width: 64em) {
-  .pc {
-    display: block;
+
+@media (max-width: 740px) {
+  .hide-on-mobile {
+    display: none;
   }
 }
 </style>
